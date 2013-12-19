@@ -1,4 +1,7 @@
 "" General
+
+syntax on
+
 set number		" Show line numbers
 set linebreak		" Break lines at word (requires Wrap lines)
 set showbreak=+++	" Wrap-broken line prefix
@@ -16,7 +19,7 @@ set autoindent		" Auto-indent new lines
 set shiftwidth=4	" Number of auto-indent spaces
 set smartindent		" Enable smart-indent
 set smarttab		" Enable smart-tabs
-set softtabstop=2	" Number of spaces per Tab
+set softtabstop=4	" Number of spaces per Tab
  
 "" Advanced
 set ruler		" Show row and column ruler information
