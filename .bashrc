@@ -30,3 +30,4 @@ alias ll='ls -lh --color=auto'
 alias la='ls -Alh'
 alias grep='grep --color=auto'
 alias vi='vim'
+alias bunx="bundle exec"
