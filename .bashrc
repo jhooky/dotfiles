@@ -9,6 +9,9 @@ esac
 # set bash to use vi commands
 set -o vi
 
+# set prompt
+export PS1="\[\033[0;32m\][\u@\h \W]\$\[\033[0m\] "
+
 # change umask to make directory sharing easir
 umask 0002
 
