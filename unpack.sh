@@ -5,7 +5,7 @@ git pull origin master
 function unpack() {
 	rsync --exclude ".git/" --exclude "unpack.sh" --exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" -av --no-perms . ~
-	source ~/.profile
+	source ~/.bash_profile
 }
 read -p "This may overwrite existing files in your home directory. Continue?[y/n] " -n 1
 echo
