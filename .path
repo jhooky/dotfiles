@@ -1,3 +1,8 @@
+# set PATH to include ~/bin if it exists
+if [ -d "$HOME/bin" ] ; then
+	export PATH="$HOME/bin:$PATH"
+fi
+
 # set PATH to include /opt/node/bin if it exists
 if [ -d "/opt/node/bin" ] ; then
 	export PATH="/opt/node/bin:$PATH"
