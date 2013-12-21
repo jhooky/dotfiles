@@ -1,3 +1,6 @@
+# set PATH to include `/usr/local/bin` before `/usr/bin`
+	export PATH="/usr/local/bin:$PATH"
+
 # set PATH to include ~/bin if it exists
 if [ -d "$HOME/bin" ] ; then
 	export PATH="$HOME/bin:$PATH"
@@ -13,3 +16,4 @@ if [ -d "$HOME/.rbenv/bin" ] ; then
 	export PATH="$HOME/.rbenv/bin:$PATH"
 	eval "$(rbenv init -)"
 fi
+
