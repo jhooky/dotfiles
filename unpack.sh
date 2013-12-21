@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Lots barrowed from github.com/mathiasbyens/dotfiles/bootstrap.sh
 
 git pull origin master

@@ -2,7 +2,7 @@ dotfiles
 ========
 Installation
 ------------
-Right now 'unpack' is as simple as could be. Clone the repository into your home directory
+unpack.sh will rsync the dotfiles to ~/
 ```bash
-git clone https://github.com/lookyhooky/dotfiles.git && cd dotfiles && source unpack
+git clone https://github.com/lookyhooky/dotfiles.git && cd dotfiles && source unpack.sh
 ```
