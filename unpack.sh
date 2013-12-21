@@ -7,11 +7,9 @@ function unpack() {
 		--exclude "LICENSE-MIT.txt" -av --no-perms . ~
 	source ~/.profile
 }
-if
-	read -p "This may overwrite existing files in your home directory. Continue?[y/n] " -n 1
-	echo
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		unpack
-	fi
+read -p "This may overwrite existing files in your home directory. Continue?[y/n] " -n 1
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	unpack
 fi
 unset unpack
