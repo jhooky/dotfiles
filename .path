@@ -1,0 +1,10 @@
+# set PATH to include /opt/node/bin if it exists
+if [ -d "/opt/node/bin" ] ; then
+	export PATH="/opt/node/bin:$PATH"
+fi
+
+# set PATH to include ~/.rbenv/bin if it exists & initialize rbenv
+if [ -d "$HOME/.rbenv/bin" ] ; then
+	export PATH="$HOME/.rbenv/bin:$PATH"
+	eval "$(rbenv init -)"
+fi
