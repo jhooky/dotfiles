@@ -14,3 +14,6 @@ if [ -d "$HOME/.rbenv/bin" ] ; then
 	eval "$(rbenv init -)"
 fi
 
+if [ -d "/Applications/Postgres.app/Contents/Versions/9.3/bin" ] ; then
+	export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+fi
