@@ -1,5 +1,5 @@
 [user]
-	email = john@lookyhooky.com
+	email = john@hookscrane.com
 	name = john
  
 [core]
@@ -28,4 +28,4 @@
 	log = true
 
 [push]
-        default = matching
+  default = matching

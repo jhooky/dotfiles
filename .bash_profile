@@ -12,7 +12,7 @@ unset file
 set -o vi
 
 # change umask to make directory sharing easir
-umask 0002
+# umask 0002
 
 # append to the history fie, don't overwrite 
 shopt -s histappend 
