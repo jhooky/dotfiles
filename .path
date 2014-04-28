@@ -2,3 +2,11 @@
 if [ -d "$HOME/bin" ] ; then
 	export PATH="$HOME/bin:$PATH"
 fi
+
+if [ -d "/opt/node/bin" ] ; then
+  export PATH="/opt/node/bin:$PATH"
+fi
+
+if [ -d "/opt/nginx/sbin" ] ; then
+  export PATH="/opt/nginx/sbin:$PATH"
+fi
