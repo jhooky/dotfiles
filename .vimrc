@@ -1,7 +1,8 @@
+execute pathogen#infect()
+filetype plugin indent on
+
 " Make Vim more useful
 set nocompatible
-" Enable syntax highlighting
-syntax on
 " Enable line numbers
 set number
 " Break lines at word (requires Wrap lines)
@@ -31,17 +32,9 @@ set ignorecase
 set incsearch
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
-" Make tabs as wide as two spaces
-set tabstop=2
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
-" Don’t show the intro message when starting Vim
-set shortmess=atI
+set tabstop=2     " make tabs as wide as two spaces 
+set shiftwidth=2  " indents will have a width of 2
+set softtabstop=2 " set the under of columns for a tab
+set expandtab     " expand tabs to spaces
 " Show the current mode
 set showmode
- " Show row and column ruler information
-set ruler
-" Number of undo levels
-set undolevels=1000
-" Allow backspace in insert mode
-set backspace=indent,eol,start
