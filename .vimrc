@@ -1,5 +1,5 @@
-execute pathogen#infect()
-filetype plugin indent on
+"execute pathogen#infect()
+"filetype plugin indent on
 
 " Make Vim more useful
 set nocompatible
