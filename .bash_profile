@@ -9,7 +9,7 @@ done
 unset file
 
 # set bash to use vi commands
-set -o vi
+# set -o vi
 
 # change umask to make directory sharing easir
 # umask 0002
