@@ -8,6 +8,8 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done
 unset file
 
+set bell-style visible
+
 # set bash to use vi commands
 # set -o vi
 
