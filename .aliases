@@ -1,3 +1,4 @@
+#!/bin/sh
 # Lots barrowed from github.com/mathiasbynens/dotfiles/.aliases
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -12,8 +13,6 @@ alias p="cd ~/projects"
 alias g="git"
 alias h="history"
 alias j="jobs"
-alias e="/Applications/Emacs.app/Contents/MacOS/Emacs -nw $@"
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs $@"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

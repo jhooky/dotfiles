@@ -1,3 +1,4 @@
+#!/bin/sh
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
 # Load the shell dotfiles, and then some:
