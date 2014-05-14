@@ -3,6 +3,10 @@ if [ -d "$HOME/bin" ] ; then
 	export PATH="$HOME/bin:$PATH"
 fi
 
+if [ -d "$HOME/.rbenv/bin" ] ; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+fi
+
 if [ -d "/opt/node/bin" ] ; then
   export PATH="/opt/node/bin:$PATH"
 fi
@@ -10,3 +14,5 @@ fi
 if [ -d "/opt/nginx/sbin" ] ; then
   export PATH="/opt/nginx/sbin:$PATH"
 fi
+
+eval "$(rbenv init -)"
