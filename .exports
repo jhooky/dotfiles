@@ -1,9 +1,9 @@
 #!/bin/sh
 # Lifted strait out of github.com/mathiasbynens/dotfiles/.exports
 # set prompt
-export PS1="\[\033[0;32m\][\u@\h \W]\$\[\033[0m\] "
+export PS1="\n\[\e[0;33m\] \[\e[0;35m\]\h \[\e[39m\]in \[\e[0;32m\]\w\n\[\e[36;1m\]○\[\e[0;32m\] \[\e[0;32m\]→\[\e[39m\] "
 
-# Make vim the default editor
+# vim the default editor
 export EDITOR="emacs"
 
 # Larger bash history (allow 32³ entries; default is 500)
