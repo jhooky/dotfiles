@@ -1,7 +1,15 @@
 #!/bin/sh
 # Lifted strait out of github.com/mathiasbynens/dotfiles/.exports
 # set prompt
-export PS1="\n\[\e[0;33m\] \[\e[0;35m\]\h \[\e[39m\]in \[\e[0;32m\]\w\n\[\e[36;1m\]○\[\e[0;32m\] \[\e[0;32m\]→\[\e[39m\] "
+# prompt notes 
+## \[\e[36;1m\] = bold cyan
+## \[\e\[0;33m\] = yellow
+## \[\e\[0;35m\] = magenta
+## \[\e\[39m\] = black ???? thats not right
+## \[\e\[0;36m\] = cyan
+## \[\e\[0;32m\] = green
+ 
+export PS1="\n\[\e[0;35m\]\h \[\e[39m\]in \[\e[0;32m\]\w\n\[\e[0;36m\]$ \[\e[39m\]"
 
 # vim the default editor
 export EDITOR="emacs"
