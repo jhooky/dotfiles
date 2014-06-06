@@ -10,7 +10,7 @@ alias -- -="cd -"
 
 # Shortcuts
 alias p="cd ~/projects"
-alias e="emacs --no-window-system"
+alias e="emacs"
 alias f="open ."
 alias g="git"
 alias h="history"
