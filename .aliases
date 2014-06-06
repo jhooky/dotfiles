@@ -10,10 +10,12 @@ alias -- -="cd -"
 
 # Shortcuts
 alias p="cd ~/projects"
+alias e="emacs --no-window-system"
+alias f="open ."
 alias g="git"
 alias h="history"
 alias j="jobs"
-alias f="open ."
+
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
