@@ -3,7 +3,7 @@
 	name = john
  
 [core]
-	editor = vim
+	editor = emacs
 	excludesfiles = ~/.gitignore
 
 [color]
@@ -28,4 +28,4 @@
 	log = true
 
 [push]
-  default = matching
+        default = matching
