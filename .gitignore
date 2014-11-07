@@ -1,8 +1,8 @@
-src/.emacs.d/ac-comphist.dat
-src/.emacs.d/auto-save-list/*
-src/.emacs.d/autosaves/*
-src/.emacs.d/backups/*
-src/.emacs.d/elpa/*
-src/.emacs.d/eshell/history
-src/.emacs.d/eshell/lastdir
-src/.emacs.d/places
+.emacs.d/ac-comphist.dat
+.emacs.d/auto-save-list/*
+.emacs.d/autosaves/*
+.emacs.d/backups/*
+.emacs.d/elpa/*
+.emacs.d/eshell/history
+.emacs.d/eshell/lastdir
+.emacs.d/places

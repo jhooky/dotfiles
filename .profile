@@ -33,7 +33,8 @@ alias ls="command ls ${colorflag}"
 # List Shortcuts
 alias l="ls -F ${colorflag}"
 alias ll="ls -lF ${colorflag}"
-alias la="ls -lAF ${colorflag}"
+alias la="ls -AF ${colorflag}"
+alias al="ls -lAF ${colorflag}"
 alias lsd="ls -l ${colorflag} | grep --color=never '^d'"
 
 # Enable aliases to be sudo’ed
