@@ -32,9 +32,9 @@ alias ls="command ls ${colorflag}"
 
 # List Shortcuts
 alias l="ls -F ${colorflag}"
-alias ll="ls -lF ${colorflag}"
+alias ll="ls -lFh ${colorflag}"
 alias la="ls -AF ${colorflag}"
-alias al="ls -lAF ${colorflag}"
+alias al="ls -lAFh ${colorflag}"
 alias lsd="ls -l ${colorflag} | grep --color=never '^d'"
 
 # Enable aliases to be sudo’ed
@@ -46,9 +46,9 @@ alias reload="exec $SHELL -l"
 set bell-style visible
 
 # emacs the default editor
-export EDITOR="emacs"
-#export EDITOR="emacsclient -c -a emacs"
-#alias estop="emacsclient -e \"(save-buffers-kill-emacs)\""
+#export EDITOR="emacs"
+export ALTERNATE_EDITOR="emacs --daemon"
+export EDITOR="emacsclient -c -a emacs"
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768

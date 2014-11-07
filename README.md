@@ -6,8 +6,8 @@ To create a portable set of configuration file
 
 ## installation
 
-unpack.sh will rsync the dotfiles to ~/
+bin/link-dotfiles.sh will link all dotfiles to home directory
 
 ```bash
-git clone https://github.com/lookyhooky/dotfiles.git && cd dotfiles && source unpack.sh
+git clone https://github.com/lookyhooky/dotfiles.git .dotfiles && cd .dotfiles/bin && source link-dotfiles.sh
 ```
