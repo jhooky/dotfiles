@@ -10,9 +10,10 @@
 			paredit
                         magit
                         markdown-mode
+                        flymake-ruby
+                        inf-ruby
 			use-package
-			monokai-theme
-			twilight-theme))
+			monokai-theme))
 
 ;; activate all the packages
 (package-initialize)
@@ -26,9 +27,9 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; load all my elisp
-(mapc 'load (directory-files (concat user-emacs-directory user-login-name)
-                             t "^[^#].*el$"))
+;; load all my elisp -- disabled
+;; (mapc 'load (directory-files (concat user-emacs-directory user-login-name)
+;;                              t "^[^#].*el$"))
 
 (require 'use-package)
 
@@ -47,6 +48,11 @@
   (progn
     (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
     (add-hook 'lisp-mode-hook 'enable-paredit-mode)))
+
+(use-package flymake-ruby
+  :init
+  (progn
+    (add-hook 'ruby-mode-hook 'flymake-ruby-load)))
 
 (use-package ido
   :init
@@ -67,8 +73,60 @@
 ;; load customizations file
 (load custom-file t)
 
+;; indent inside parens like every where else
+(setq ruby-deep-indent-paren nil)
+
 ;; load theme
 (load-theme 'monokai t)
 
 ;; increase font size
 (set-face-attribute 'default nil :height 140)
+
+;; functions
+(defun smart-open-line ()
+  "Insert an empty line after the current line.
+Position the cursor at its beginning, according to the current mode."
+  (interactive)
+  (move-end-of-line nil)
+  (newline-and-indent))
+
+(defun smart-open-line-above ()
+  "Insert an empty line above the current line.
+Position the cursor at it's beginning, according to the current mode."
+  (interactive)
+  (move-beginning-of-line nil)
+  (newline-and-indent)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+;; keybindings
+(global-set-key (kbd "M-o") 'smart-open-line)
+(global-set-key (kbd "M-O") 'smart-open-line-above)
+
+;; the rest
+;; store all backup and autosave files in the tmp dir
+;; commented out backup-directory, defined differently in better-defaults.el
+;; (setq backup-directory-alist
+;;       `((".*" . ,temporary-file-directory)))
+;; (setq auto-save-file-name-transforms
+;;       `((".*" ,temporary-file-directory t)))
+
+;; shell scripts
+(setq-default sh-basic-offset 2)
+(setq-default sh-indentation 2)
+
+;; frame size when windowed
+;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 80) (height . 42)))
+
+;; org-mode settings
+(setq org-log-done t)
+
+;; disable prompt for buffers
+(setq confirm-nonexistent-file-or-buffer nil)
+(setq kill-buffer-query-functions
+  (remq 'process-kill-buffer-query-function
+         kill-buffer-query-functions))
+
+;; simply 'yes or no' to 'y or n'
+(fset 'yes-or-no-p 'y-or-n-p)
+

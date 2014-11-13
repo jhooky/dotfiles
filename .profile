@@ -46,9 +46,9 @@ alias reload="exec $SHELL -l"
 set bell-style visible
 
 # emacs the default editor
-#export EDITOR="emacs"
-export ALTERNATE_EDITOR="emacs --daemon"
-export EDITOR="emacsclient -c -a emacs"
+export EDITOR="emacs"
+#export ALTERNATE_EDITOR=""
+#export EDITOR="emacsclient -c -a emacs"
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
