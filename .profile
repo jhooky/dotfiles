@@ -97,6 +97,8 @@ function hs() {
   history | grep $1
 }
 
+# currently .nvm is added through .bashrc
+
 # add '~/.rbenv' if present and init
 if [ -d "$HOME/.rbenv/bin" ] ; then
   export PATH="$HOME/.rbenv/bin:$PATH"
@@ -106,6 +108,11 @@ fi
 # add '~/bin' if present
 if [ -d "$HOME/bin" ] ; then
   export PATH="$HOME/bin:$PATH"
+fi
+
+# add '~/.npm-packages/bin' if present
+if [ -d "$HOME/.npm-packages/bin" ] ; then
+  export PATH="$HOME/.npm-packages/bin:$PATH"
 fi
 
 # set prompt
