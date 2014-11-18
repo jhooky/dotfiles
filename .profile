@@ -11,9 +11,12 @@ alias -- -="cd -"
 # Shortcuts
 alias p="cd ~/projects"
 alias f="open ."
-alias g="git"
 alias h="history"
 alias j="jobs"
+
+# Git Shortcuts
+alias g="git"
+alias gs="git status"
 
 # Mac ls colors ... need to research all this ls nonsense
 export CLICOLOR=1
