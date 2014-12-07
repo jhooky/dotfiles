@@ -9,5 +9,5 @@ To create a portable set of configuration file
 bin/link-dotfiles.sh will link all dotfiles to home directory
 
 ```bash
-git clone https://github.com/lookyhooky/dotfiles.git .dotfiles && cd .dotfiles/bin && source link-dotfiles.sh
+git clone https://github.com/lookyhooky/dotfiles.git .dotfiles && cd .dotfiles/scripts && source link-dotfiles.sh
 ```
