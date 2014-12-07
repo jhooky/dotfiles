@@ -61,6 +61,7 @@
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el")
       vc-follow-symlinks t
       inhibit-startup-message t
+      mouse-wheel-mode t
       show-paren-delay 0
       auto-save-file-name-transforms `((".*" ,(concat user-emacs-directory
                                                       "autosaves") t)))

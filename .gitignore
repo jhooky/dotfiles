@@ -5,6 +5,7 @@
 .emacs.d/elpa/*
 .emacs.d/eshell/history
 .emacs.d/eshell/lastdir
+.emacs.d/games
 .emacs.d/ido.last
 .emacs.d/places
 
