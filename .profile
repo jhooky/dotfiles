@@ -19,9 +19,9 @@ alias g="git"
 alias gs="git status"
 
 # Mac ls colors ... need to research all this ls nonsense
-export CLICOLOR=1
-export LSCOLORS=cxfxcxdxbxegedabagacad
-export LS_COLORS='no=00:fi=00:di=31:ln=00;30:or=01;31'
+#export CLICOLOR=1
+#export LSCOLORS=cxfxcxdxbxegedabagacad
+#export LS_COLORS='no=00:fi=00:di=31:ln=00;30:or=01;31'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -113,6 +113,12 @@ fi
 # add '~/.npm-packages/bin' if present
 if [ -d "$HOME/.npm-packages/bin" ] ; then
   export PATH="$HOME/.npm-packages/bin:$PATH"
+fi
+
+# source '~/.nvm/nvm.sh' if present
+if [ -d "$HOME/.nvm"] ; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 fi
 
 # set prompt

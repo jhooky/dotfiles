@@ -1,7 +1,7 @@
 [user]
 	email = john@hookscrane.com
 	name = john
- 
+
 [core]
 	editor = emacs
 	excludesfiles = ~/.gitignore
@@ -28,4 +28,4 @@
 	log = true
 
 [push]
-        default = matching
+  default = matching

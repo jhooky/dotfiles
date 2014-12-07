@@ -7,3 +7,5 @@
 .emacs.d/eshell/lastdir
 .emacs.d/ido.last
 .emacs.d/places
+
+.DS_Store
