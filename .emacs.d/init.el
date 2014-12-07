@@ -8,12 +8,7 @@
 (defvar packages-list '(better-defaults
 			auto-complete
 			paredit
-                        magit
-                        markdown-mode
-                        flymake-ruby
-                        inf-ruby
-			use-package
-			monokai-theme))
+			use-package))
 
 ;; activate all the packages
 (package-initialize)
@@ -76,9 +71,6 @@
 ;; indent inside parens like every where else
 (setq ruby-deep-indent-paren nil)
 
-;; load theme
-(load-theme 'monokai t)
-
 ;; increase font size
 (set-face-attribute 'default nil :height 140)
 
@@ -129,4 +121,3 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; simply 'yes or no' to 'y or n'
 (fset 'yes-or-no-p 'y-or-n-p)
-

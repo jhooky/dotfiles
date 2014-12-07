@@ -50,7 +50,6 @@ set bell-style visible
 
 # emacs the default editor
 export EDITOR="emacs"
-#export ALTERNATE_EDITOR=""
 #export EDITOR="emacsclient -c -a emacs"
 
 # Larger bash history (allow 32³ entries; default is 500)
@@ -97,17 +96,15 @@ function hs() {
   history | grep $1
 }
 
-# currently .nvm is added through .bashrc
-
 # add '~/.rbenv' if present and init
 if [ -d "$HOME/.rbenv/bin" ] ; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
 
-# add '~/bin' if present
-if [ -d "$HOME/bin" ] ; then
-  export PATH="$HOME/bin:$PATH"
+# add '~/local/bin' if present
+if [ -d "$HOME/local/bin" ] ; then
+  export PATH="$HOME/local/bin:$PATH"
 fi
 
 # add '~/.npm-packages/bin' if present
@@ -116,10 +113,42 @@ if [ -d "$HOME/.npm-packages/bin" ] ; then
 fi
 
 # source '~/.nvm/nvm.sh' if present
-if [ -d "$HOME/.nvm"] ; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-fi
+#if [ -d "$HOME/.nvm" ] ; then
+#  export NVM_DIR="$HOME/.nvm"
+#  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#fi
+
+# [0m  reset all attributes
+# [1m  set 'bright' attr
+# [2m  set 'dim' attr
+# [4m  set 'underscore' attr
+# [5m  set 'blick'attr
+# [7m  set 'reverse' attr
+# [8m  set 'hidden' attr
+
+## Foreground
+# [30m black
+# [31m red
+# [32m green
+# [33m yellow
+# [34m blue
+# [35m magenta
+# [36m cyan
+# [37m white
+# [39m set default
+
+## Background
+# [40m black
+# [41m red
+# [42m green
+# [43m yellow
+# [44m blue
+# [45m magenta
+# [46m cyan
+# [47m white
+# [49m set default
 
 # set prompt
-export PS1="\n\[\e[0;35m\]\h \[\e[39m\]in \[\e[0;32m\]\w\n\[\e[0;36m\]$ \[\e[39m\]"
+## backup
+#export PS1="\n\[\e[0;35m\]\h \[\e[39m\]in \[\e[0;32m\]\w\n\[\e[0;36m\]$ \[\e[39m\]"
+export PS1="\[\e[0;36m\]\h \[\e[39m\]in \[\e[0;36m\]\w\n\[\e[0;35m\]$ \[\e[39m\]"
