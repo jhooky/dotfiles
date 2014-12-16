@@ -151,4 +151,6 @@ fi
 # set prompt
 ## backup
 #export PS1="\n\[\e[0;35m\]\h \[\e[39m\]in \[\e[0;32m\]\w\n\[\e[0;36m\]$ \[\e[39m\]"
-export PS1="\[\e[0;37m\]\h \[\e[32m\]in \[\e[0;37m\]\w\n\[\e[0;32m\]$ \[\e[39m\]"
+## like it but want it to try it simpler
+#export PS1="\[\e[0;37m\]\h \[\e[32m\]in \[\e[0;37m\]\w\n\[\e[0;32m\]$ \[\e[39m\]"
+export PS1="\[\e[0;32m\]$ \[\e[39m\]"
