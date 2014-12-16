@@ -3,6 +3,8 @@
 
 set -e
 
+SRC_DIR="$(pwd)/src"
+
 echo "Symlinking dotfiles..."
 
 if [ -r $HOME/.bashrc ] && [ ! -h $HOME/.bashrc ] ; then
@@ -13,11 +15,12 @@ if [ -r $HOME/.profile ] && [ ! -h $HOME/.profile ] ; then
   rm $HOME/.profile # blow away the stock one
 fi
 
-for f in $(ls -a ~/.dotfiles) ; do
-  if [ ! -r "$HOME/$f" ] && [ $f != "." ] && [ $f != ".." ] &&
-	   [ $f != "README.md" ] && [ "$f" != ".git" ] &&
-     [ $f != ".gitignore" ] && [ $f != "LICENSE-MIT.txt" ]; then
+for f in $(ls -a $SRC_DIR) ; do
+  if [ ! -r "$HOME/$f" ] && [ $f != "." ] && [ $f != ".." ] ; then
 
-     ln -s "$HOME/.dotfiles/$f" "$HOME/$f"
+    ln -s "$SRC_DIR/$f" "$HOME/.$f"
+
+    echo ".$f linked"
+    
   fi
 done
