@@ -19,7 +19,7 @@ To create a portable set of configuration files that can mash well with others.
 Clone repo and source `mash.sh` it will link all dotfiles to your home directory. If there is conflict with previous files, there will be chance to remove and link or skip that file.
 
 ```bash
-git clone https://github.com/lookyhooky/dotfiles.git .dotfiles && cd .dotfiles && source mash.sh
+git clone https://github.com/lookyhooky/dotfiles.git dotfiles && cd dotfiles && source mash.sh
 ```
 
 ## ToDo
