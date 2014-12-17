@@ -1,144 +1,83 @@
 #!/usr/bin/env bash
 # mash.sh by lookyhooky
-#     __            __         __                __
-#    / /___  ____  / /____  __/ /_  ____  ____  / /____  __
-#   / / __ \/ __ \/ //_/ / / / __ \/ __ \/ __ \/ //_/ / / /
-#  / / /_/ / /_/ / ,< / /_/ / / / / /_/ / /_/ / ,< / /_/ /
-# /_/\____/\____/_/|_|\__, /_/ /_/\____/\____/_/|_|\__, /
-#                    /____/                       /____/
 
 set -e
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 SRC_DIR="$(pwd)/src"    # source directory
 DST_DIR="$HOME"         # destination directory
 
-PALETTE_STRONG="1"
-PALETTE_NORMAL="0"
+source "$DIR/bin/easy.sh"
 
-colortext() {
-  echo -e "\\033[$PALETTE_STRONG;$2m$1\\033[0m"
-}
+cat << "EOF"
+Welcome to lookyhooky/dotfiles... may they mash well with yours
 
-error_exit () {
-  # expecrs $1 as a string representing an error message
+  _____ ______   ________  ________  ___  ___
+ |\   _ \  _   \|\   __  \|\   ____\|\  \|\  \
+ \ \  \\\__\ \  \ \  \|\  \ \  \___|\ \  \\\  \
+  \ \  \\|__| \  \ \   __  \ \_____  \ \   __  \
+   \ \  \    \ \  \ \  \ \  \|____|\  \ \  \ \  \
+    \ \__\    \ \__\ \__\ \__\____\_\  \ \__\ \__\
+     \|__|     \|__|\|__|\|__|\_________\|__|\|__|
+                            \|_________|
 
-  echo "$1" 1>&2
-  exit 1
+EOF
 
-}
+mash () {
+  # expects $1 as source directory and $2 as destination directory
 
-send_message () {
-  # expects $1 as flash $2 as ancii color code and $3 as message
+  local src_dir="$1"
+  local src_files="$(cd $src_dir ; echo *[[:alnum:]])"
+  local dst_dir="$2"
 
-  echo -e "[$(colortext $1 $2)] $3"
+  printf "Symlinking files...\n\n"
 
-}
+  for file in $src_files ; do
 
-compare_link () {
-  # expects $1 as destination directory expects $2 as source file path
+    local src_path="$SRC_DIR/$file"
+    local  dst_path="$DST_DIR/.$file"
 
-  link_path="$(ls -Al $1 | grep -Eo $2 )"
 
-  if [ "$link_path" == "$2" ] ; then
-    return 0
-  else
-    return 1
-  fi
+    if [ -f "$dst_path" ] ; then
 
-}
+      if [ -h "$dst_path" ] && compare_link "$dst_path" "$src_path" ; then
+        # there is already a link to the source file, roll on
+        howl_status "Rolling" "$dst_path already links to source file"
 
-link_file () {
-  # expects $1 as source file and $2 as destination file
+      elif [ -h "$dst_path" ] ; then
+        # there is a unknown link in place of where the link should go
+        howl_warning "$dst_path links to unknown file"
 
-  ln -s $1 $2
-  send_message "Mashed!" "32" "$2 linked to source"
+        if prompt_removal "$dst_path" ; then
+          link_file "$src_path" "$dst_path"
+        else
+          howl_failure "$dst_path not linked to source file)"
+        fi
 
-}
+      else
+        # there is a regular file in place of where the link should go
+        howl_warning "$dst_path is an unknown regular file"
 
-prompt_removal () {
-  # expects $1 as a path to the file to remove
+        if prompt_removal "$dst_path" ; then
+          link_file "$src_path" "$dst_path"
+        else
+          howl_failure "$dst_path not linked to source file"
+        fi
 
-  while true; do
-    read -p "Do you wish to remove $1? " yn
+      fi
 
-    case $yn in
-      [Yy]* )
-        rm $1
-        send_message "Success" "32" "$1 removed"
-        return 0;;
-      [Nn]* )
-        send_message "FAILURE" "31" "$1 not removed"
-        return 1;;
-      *)
-        send_message "FAILURE" "31" "Please answer 'yes' or 'no'";;
-    esac
+    else
+      # there is nothing in the way of linking the file
+
+      link_file "$src_path" "$dst_path"
+
+    fi
 
   done
 
 }
 
+mash $SRC_DIR $DST_DIR
 
-cat << "EOF"
-
-Welcome to lookyhooky/dotfiles... may they mash well with yours
-
-                            __
-   ///////\\ ///||| ///||///  \\\||  |||
-  ///////  \\// |||/// ||\\\__  |||  |||
- ///////    //  ||///==|||    \\\||==|||
-///////         |///   ||\\\__///||  |||
-
-Symlinking dotfiles...
-
-EOF
-
-src_files="$(ls -1F $SRC_DIR)"
-
-for file in $src_files ; do
-
-  src_path="$SRC_DIR/$file"
-  dst_path="$DST_DIR/.$file"
-
-  if [ -f $dst_path ] ; then
-
-    if [ -h $dst_path ] && compare_link $DST_DIR $src_path ; then
-      # there is already a link to the source file, roll on
-      send_message "Rolling" "36" "$dst_path links to source file"
-
-    elif [ -h $dst_path ] ; then
-      # there is a unknown link in place of where the link should go
-      send_message "Warning" "33" "$dst_path links to unknown file"
-
-      if prompt_removal $dst_path ; then
-        link_file $src_path $dst_path
-      else
-        send_message "FAILURE" "31" "$dst_path not linked to source file"
-      fi
-
-    else
-      # there is a regular file in place of where the link should go
-      send_message "Warning" "33" "$dst_path is an unknown regular file"
-
-      if prompt_removal $dst_path ; then
-        link_file $src_path $dst_path
-      else
-        send_message "FAILURE" "31" "dst_path not linked to source file"
-      fi
-
-    fi
-
-  else
-    # there is nothing in the way of linking the file
-
-    link_file $src_path $dst_path
-
-  fi
-
-done
-unset file
-
-cat <<EOF
-
-Boy! That was painless!
-
-EOF
+printf "\nLinking complete\n"
