@@ -135,6 +135,7 @@ for file in $src_files ; do
   fi
 
 done
+unset file
 
 cat <<EOF
 
