@@ -43,6 +43,15 @@ alias lsd="ls -l ${colorflag} | grep --color=never '^d'"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
@@ -119,4 +128,8 @@ if [ -d "$HOME/.nvm" ] ; then
 fi
 
 # set prompt
-export PS1="\[\e[35m\]in \[\e[0;37m\]\w\n\[\e[0;32m\]$ \[\e[39m\]"
+LT_GRN="\033[38;5;36m"
+DK_GRY="\033[38;5;244m"
+LT_GRY="\033[38;5;254m"
+#export PS1="\[\e[35m\]in \[\e[0;37m\]\w\n\[\e[0;32m\]$ \[\e[39m\]"
+export PS1="\[$LT_GRY\]in \[$DK_GRY\]\w\n\[$LT_GRN\]$ \[\e[39m\]"
