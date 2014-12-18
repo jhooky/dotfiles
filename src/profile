@@ -57,6 +57,8 @@ alias reload="exec $SHELL -l"
 
 set bell-style visible
 
+export TERM=xterm-256color
+
 # emacs the default editor
 export EDITOR="emacs"
 #export EDITOR="emacsclient -c -a emacs"
