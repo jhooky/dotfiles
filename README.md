@@ -24,6 +24,4 @@ git clone https://github.com/lookyhooky/dotfiles.git dotfiles && cd dotfiles && 
 
 ## ToDo
 
-* Make everything more modular
-* I believe that `ls` has a different set of commands in linux. I need to compare to OSX, on which this was built.
-* I want to break out most of the functions of mash.sh into a separate file to use in different projects.
+* Break mash out into a script that can be used to merge files in a sane way.

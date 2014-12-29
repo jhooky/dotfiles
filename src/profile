@@ -13,15 +13,7 @@ alias p="cd ~/projects"
 alias f="open ."
 alias h="history"
 alias j="jobs"
-
-# Git Shortcuts
 alias g="git"
-alias gs="git status"
-
-# Mac ls colors ... need to research all this ls nonsense
-#export CLICOLOR=1
-#export LSCOLORS=cxfxcxdxbxegedabagacad
-#export LS_COLORS='no=00:fi=00:di=31:ln=00;30:or=01;31'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -58,11 +50,14 @@ alias reload="exec $SHELL -l"
 set bell-style visible
 
 # emacs the default editor
-export EDITOR="emacs"
-#export EDITOR="emacsclient -c -a emacs"
+# export EDITOR="emacs"
+export EDITOR="emacsclient -c"
+
+alias eboot="emacs --daemon"
+alias ekill="emacsclient -e '(kill-emacs)'"
 
 # Larger bash history (allow 32³ entries; default is 500)
-export HISTSIZE=32768
+export HISTSIZE=5000
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
 
@@ -77,7 +72,7 @@ export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
 
 # Highlight section titles in manual pages
-export LESS_TERMCAP_md="$ORANGE"
+# export LESS_TERMCAP_md="$ORANGE"
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
@@ -127,9 +122,9 @@ if [ -d "$HOME/.nvm" ] ; then
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 fi
 
-# set prompt
+# set a colorful prompt... I always use a 256 color term anyway
 LT_GRN="\033[38;5;36m"
 DK_GRY="\033[38;5;244m"
 LT_GRY="\033[38;5;254m"
-#export PS1="\[\e[35m\]in \[\e[0;37m\]\w\n\[\e[0;32m\]$ \[\e[39m\]"
-export PS1="\[$LT_GRY\]in \[$DK_GRY\]\w\n\[$LT_GRN\]$ \[\e[39m\]"
+
+export PS1="\[$DK_GRY\]in \w\n\[$LT_GRN\]$ \[\e[39m\]"
