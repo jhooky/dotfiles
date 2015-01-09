@@ -16,7 +16,9 @@ To create a portable set of configuration files that can mash well with others.
 
 ## Installation
 
-Clone repo and source `mash.sh`. It will link all *dotfiles* to your home directory. If there is conflict with a previous installed file, there will be a chance to remove and link to *dotfiles* or skip that file.
+Clone repo and source `mash.sh`. It will link all *dotfiles* to your home directory.
+If there is conflict with a previous installed file, there will be a chance to remove
+and link to *dotfiles* or skip that file.
 
 ```bash
 git clone https://github.com/lookyhooky/dotfiles.git dotfiles && cd dotfiles && source mash.sh
@@ -25,3 +27,4 @@ git clone https://github.com/lookyhooky/dotfiles.git dotfiles && cd dotfiles && 
 ## ToDo
 
 * Break mash out into a script that can be used to merge files in a sane way.
+* Backup users own dotfiles if they choose to overide with those provided in `src`
