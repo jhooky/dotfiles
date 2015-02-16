@@ -21,10 +21,6 @@
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
-[user]
-	email = john@hookscrane.com
-	name = john
-
 [core]
 	editor = emacs
 	# Use custom `.gitignore`
